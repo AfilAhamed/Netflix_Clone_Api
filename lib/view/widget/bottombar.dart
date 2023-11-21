@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/helpers/colors.dart';
 import 'package:netflix_clone/view/download_screen/download_screen.dart';
 import 'package:netflix_clone/view/feeds_screen.dart/feeds_screen.dart';
 import 'package:netflix_clone/view/home_screen/home_screen.dart';
@@ -33,7 +34,7 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
             currentIndex: currentIndex,
             selectedItemColor: Colors.white,
             unselectedItemColor: Colors.grey,
-            backgroundColor: Colors.black,
+            backgroundColor: AppColors().backgroundColor,
             type: BottomNavigationBarType.fixed,
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),

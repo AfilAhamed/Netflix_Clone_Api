@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:netflix_clone/helpers/colors.dart';
 import 'package:netflix_clone/view/widget/bottombar.dart';
 
@@ -15,14 +16,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Netflix_Clone',
       theme: ThemeData(
-          // textTheme: TextTheme(
-          //   bodyMedium: TextStyle(
-          //     color: Colors.white,
-          //   ),
-          // ),
-          scaffoldBackgroundColor: AppColors().backgroundColor
-          // useMaterial3: true,
-          ),
+          textTheme:
+              const TextTheme(bodyMedium: TextStyle(color: Colors.white)),
+          fontFamily: GoogleFonts.montserrat().fontFamily,
+          appBarTheme:
+              AppBarTheme(backgroundColor: AppColors().backgroundColor),
+          scaffoldBackgroundColor: AppColors().backgroundColor),
       home: const BottomBarWidget(),
     );
   }
