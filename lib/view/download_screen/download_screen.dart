@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'widget/download_image_widget.dart';
 
 class DownloadScreen extends StatelessWidget {
@@ -36,6 +35,7 @@ class DownloadScreen extends StatelessWidget {
             children: [
               SizedBox(
                 height: 30,
+                width: 20,
               ),
               Icon(
                 Icons.settings,
@@ -50,9 +50,22 @@ class DownloadScreen extends StatelessWidget {
               ),
             ],
           ),
-          const Text('Introducing Downloads fro you'),
+          const SizedBox(
+            height: 20,
+          ),
           const Text(
-              'We will download a personlised slections of movies and shows for you,so there is always somthing to watch on your devies'),
+            'Introducing Downloads fro you',
+            style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(
+            height: 12,
+          ),
+          const Text(
+            'We will download a personlised slections of movies and shows for you,so there is always somthing to watch on your devies',
+            style: TextStyle(fontSize: 18, color: Colors.grey),
+            textAlign: TextAlign.center,
+          ),
           Container(
             color: Colors.black,
             height: size.height * 0.5,
@@ -61,6 +74,7 @@ class DownloadScreen extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 CircleAvatar(
+                  backgroundColor: Colors.grey.withOpacity(0.5),
                   radius: size.width * 0.40,
                 ),
                 //download image widget called here
@@ -78,26 +92,45 @@ class DownloadScreen extends StatelessWidget {
               ],
             ),
           ),
-          MaterialButton(
-            color: Colors.blue,
-            onPressed: () {},
-            child: const Text(
-              'Setup',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
+            child: MaterialButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              color: Colors.blue,
+              onPressed: () {},
+              child: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                child: Text(
+                  'Setup',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
             ),
           ),
-          MaterialButton(
-            color: Colors.white,
-            onPressed: () {},
-            child: const Text(
-              'See what you can download',
-              style: TextStyle(
-                  color: Colors.blue,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold),
+          const SizedBox(
+            height: 12,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 45),
+            child: MaterialButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              color: Colors.white,
+              onPressed: () {},
+              child: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                child: Text(
+                  'See what you can download',
+                  style: TextStyle(
+                      color: Colors.blue,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
             ),
           )
         ],

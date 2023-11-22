@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class DownloadImageWidget extends StatelessWidget {
@@ -23,8 +22,9 @@ class DownloadImageWidget extends StatelessWidget {
         width: size.width * 0.4,
         height: size.width * 0.6,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            image: DecorationImage(image: NetworkImage(imageList))),
+            borderRadius: BorderRadius.circular(14),
+            image: DecorationImage(
+                fit: BoxFit.cover, image: NetworkImage(imageList))),
       ),
     );
   }
