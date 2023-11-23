@@ -18,8 +18,7 @@ class SearchIdleWidget extends StatelessWidget {
         ),
         Expanded(
           child: GridView.builder(
-            //shrinkWrap: true,
-            // physics: const NeverScrollableScrollPhysics(),
+       
             itemCount: 10,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
