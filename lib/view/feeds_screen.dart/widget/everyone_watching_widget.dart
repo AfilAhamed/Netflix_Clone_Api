@@ -34,7 +34,7 @@ class EveryoneWatchingWidget extends StatelessWidget {
                     width: double.infinity,
                     child: Image.network(
                         fit: BoxFit.cover,
-                        'https://www.themoviedb.org/t/p/w710_and_h400_multi_faces/feSiISwgEpVzR1v3zv2n2AU4ANJ.jpg'),
+                        'https://cdn.akamai.steamstatic.com/steam/apps/1817190/header.jpg?t=1700663089'),
                   ),
                   Positioned(
                     bottom: 10,
