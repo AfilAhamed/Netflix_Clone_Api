@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/view/feeds_screen.dart/widget/coming_soon_widget.dart';
+import 'package:netflix_clone/view/feeds_screen.dart/widget/everyone_watching_widget.dart';
 
 class FeedsScreen extends StatelessWidget {
   const FeedsScreen({super.key});
@@ -39,10 +41,8 @@ class FeedsScreen extends StatelessWidget {
                 )
               ]),
         ),
-        body: TabBarView(children: [
-          Text('1'),
-          Text('2'),
-        ]),
+        body: const TabBarView(
+            children: [ComingSoonWidget(), EveryoneWatchingWidget()]),
       ),
     );
   }

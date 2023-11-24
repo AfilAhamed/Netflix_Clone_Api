@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
                     Colors.black.withOpacity(0.8),
                     Colors.black.withOpacity(0),
                   ])),
-              height: 120,
+              height: 130,
               width: double.infinity,
               child: const Padding(
                 padding: EdgeInsets.only(top: 10),
@@ -43,17 +43,17 @@ class HomeScreen extends StatelessWidget {
                         Text(
                           'Tv Shows',
                           style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                              fontSize: 22, fontWeight: FontWeight.bold),
                         ),
                         Text(
                           'Movies',
                           style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                              fontSize: 22, fontWeight: FontWeight.bold),
                         ),
                         Text(
                           'Categories',
                           style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                              fontSize: 22, fontWeight: FontWeight.bold),
                         )
                       ],
                     )
