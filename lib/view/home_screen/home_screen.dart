@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/view/home_screen/widget/card_widget.dart';
 import 'package:netflix_clone/view/home_screen/widget/number_card_widget.dart';
@@ -12,14 +13,24 @@ class HomeScreen extends StatelessWidget {
       body: ListView(
         children: [
           Stack(children: [
-            Container(
-              width: double.infinity,
-              height: size.height * 0.6,
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(
-                          'https://www.tallengestore.com/cdn/shop/products/Joker_-_Put_On_A_Happy_Face_-_Joaquin_Phoenix_-_Hollywood_English_Movie_Poster_3_de5e4cfc-cfd4-4732-aad1-271d6bdb1587.jpg?v=1579504979'))),
+            CarouselSlider(
+              options: CarouselOptions(
+                  viewportFraction: 1.0,
+                  enlargeCenterPage: false,
+                  autoPlayInterval: const Duration(seconds: 5),
+                  height: size.height * 0.6,
+                  autoPlay: true),
+              items: [
+                Container(
+                  width: double.infinity,
+                  height: size.height * 0.6,
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(
+                              'https://www.tallengestore.com/cdn/shop/products/Joker_-_Put_On_A_Happy_Face_-_Joaquin_Phoenix_-_Hollywood_English_Movie_Poster_3_de5e4cfc-cfd4-4732-aad1-271d6bdb1587.jpg?v=1579504979'))),
+                ),
+              ],
             ),
             //top
             Container(

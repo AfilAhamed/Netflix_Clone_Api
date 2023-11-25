@@ -30,6 +30,7 @@ environment:
 dependencies:
   bordered_text: ^2.0.0
   card_swiper: ^3.0.1
+  carousel_slider: ^4.2.1
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
