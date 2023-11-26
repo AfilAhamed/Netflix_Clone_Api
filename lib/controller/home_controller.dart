@@ -51,8 +51,8 @@ class HomeScreenController extends ChangeNotifier {
 
   List<String> popularMoviesImages = [];
   Future<void> getPopularMoviesImages() async {
-    popularMoviesImages =
-        await PosterImageServices().getMoviePosterImage(ApiEndpoints.top10);
+    popularMoviesImages = await PosterImageServices()
+        .getMoviePosterImage(ApiEndpoints.moviepopular);
     notifyListeners();
   }
 }

@@ -8,11 +8,9 @@ class ApiEndpoints {
   static const top10 =
       '$baseUrl/discover/tv?include_adult=false&language=en-US&page=1&sort_by=vote_average.desc&vote_count.gte=200&api_key=$apiKey';
 
-  static const popularMovies =
-      '$baseUrl/popular?api_key=$apiKey&language=en-US&page=1';
+  static const moviepopular =
+      '$baseUrl/movie/popular?api_key=$apiKey&language=en-US&page=1';
 
-  // static const popularMovies =
-  //     '$baseUrl/popular?api_key=$apiKey&language=en-US&page=1';
   static const tvPopular =
       "$baseUrl/tv/popular?api_key=$apiKey&language=en-US&page=1";
 }
