@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/helpers/colors.dart';
 import 'package:netflix_clone/view/download_screen/download_screen.dart';
-import 'package:netflix_clone/view/feeds_screen.dart/feeds_screen.dart';
+import 'package:netflix_clone/view/hot_new_screen.dart/hot_new_screen.dart';
 import 'package:netflix_clone/view/home_screen/home_screen.dart';
 import 'package:netflix_clone/view/search_screen/search_screen.dart';
 

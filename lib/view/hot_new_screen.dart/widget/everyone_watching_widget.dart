@@ -1,28 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/controller/hot_new_controller.dart';
+import 'package:netflix_clone/model/movie_model.dart';
+import 'package:provider/provider.dart';
+import '../../../services/constants/api_key.dart';
 
 class EveryoneWatchingWidget extends StatelessWidget {
   const EveryoneWatchingWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<HotAndNewController>(context);
     return ListView.builder(
-      itemCount: 10,
+      itemCount: provider.everyonesWatching.length,
       itemBuilder: (context, index) {
+        final MovieInfoModel data = provider.everyonesWatching[index];
         return Padding(
           padding: const EdgeInsets.only(top: 25, left: 15, right: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Spider Man',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              Text(
+                data.orginalTitle.toString(),
+                style:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 10,
               ),
-              const Text(
-                'Peter Parker, a shy and awkward high school student, is often bullied by people, including his best friend. His life changes when he is bitten by a genetically altered spider and gains superpowers',
-                style: TextStyle(color: Colors.grey),
+              Text(
+                data.overview.toString(),
+                style: const TextStyle(color: Colors.grey),
               ),
               const SizedBox(
                 height: 10,
@@ -30,11 +37,11 @@ class EveryoneWatchingWidget extends StatelessWidget {
               Stack(
                 children: [
                   SizedBox(
-                    height: 200,
+                    height: 240,
                     width: double.infinity,
                     child: Image.network(
                         fit: BoxFit.cover,
-                        'https://cdn.akamai.steamstatic.com/steam/apps/1817190/header.jpg?t=1700663089'),
+                        'https://image.tmdb.org/t/p/w500${data.posterPath}?api_key=$apiKey'),
                   ),
                   Positioned(
                     bottom: 10,

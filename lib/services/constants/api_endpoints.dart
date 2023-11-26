@@ -2,6 +2,7 @@ import 'api_key.dart';
 
 class ApiEndpoints {
   static const trendingMovies = "$baseUrl/trending/all/day?api_key=$apiKey";
+
   static const upcoming =
       "$baseUrl/movie/upcoming?api_key=$apiKey&language=en-US&page=1";
 
@@ -13,4 +14,6 @@ class ApiEndpoints {
 
   static const tvPopular =
       "$baseUrl/tv/popular?api_key=$apiKey&language=en-US&page=1";
+
+  //static const search = "";
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../services/constants/api_endpoints.dart';
-import '../services/poster_image_services.dart';
+import '../services/home_services.dart';
 
 class HomeScreenController extends ChangeNotifier {
   HomeScreenController() {
