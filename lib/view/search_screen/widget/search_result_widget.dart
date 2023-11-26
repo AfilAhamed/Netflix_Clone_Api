@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/controller/search_controller.dart';
+import 'package:netflix_clone/model/movie_model.dart';
+import 'package:provider/provider.dart';
+
+import '../../../services/constants/api_key.dart';
 
 class SearchResultWidget extends StatelessWidget {
   const SearchResultWidget({super.key});
@@ -17,24 +22,29 @@ class SearchResultWidget extends StatelessWidget {
           height: 10,
         ),
         Expanded(
-          child: GridView.builder(
-            itemCount: 12,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                crossAxisSpacing: 6,
-                mainAxisSpacing: 10,
-                childAspectRatio: 0.7),
-            itemBuilder: (context, index) {
-              return Container(
-                width: size * 0.3,
-                height: size * 0.62,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(
-                          'https://www.tallengestore.com/cdn/shop/products/Joker_-_Put_On_A_Happy_Face_-_Joaquin_Phoenix_-_Hollywood_English_Movie_Poster_3_de5e4cfc-cfd4-4732-aad1-271d6bdb1587.jpg?v=1579504979'),
-                    )),
+          child: Consumer<SearchsController>(
+            builder: (context, searchProvider, child) {
+              return GridView.builder(
+                itemCount: searchProvider.searchResults.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 6,
+                    mainAxisSpacing: 10,
+                    childAspectRatio: 0.7),
+                itemBuilder: (context, index) {
+                  MovieInfoModel data = searchProvider.searchResults[index];
+                  return Container(
+                    width: size * 0.3,
+                    height: size * 0.62,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(
+                              'https://image.tmdb.org/t/p/w500${data.posterPath}?api_key=$apiKey'),
+                        )),
+                  );
+                },
               );
             },
           ),

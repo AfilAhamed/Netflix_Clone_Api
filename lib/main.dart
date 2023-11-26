@@ -6,6 +6,8 @@ import 'package:netflix_clone/helpers/colors.dart';
 import 'package:netflix_clone/view/widget/bottombar.dart';
 import 'package:provider/provider.dart';
 
+import 'controller/search_controller.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -22,6 +24,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => HotAndNewController(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => SearchsController(),
         ),
       ],
       child: MaterialApp(

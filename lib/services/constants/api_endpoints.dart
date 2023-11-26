@@ -15,5 +15,5 @@ class ApiEndpoints {
   static const tvPopular =
       "$baseUrl/tv/popular?api_key=$apiKey&language=en-US&page=1";
 
-  //static const search = "";
+  static const searchMovie = '$baseUrl/search/movie?api_key=$apiKey&query=';
 }
