@@ -45,14 +45,4 @@ class HotandNewServices {
       throw error.toString();
     }
   }
-
-//   Future fetchMoviePopular() async {
-//     try {
-//       final movies = await apiCall(ApiEndPoints.everyonesWatchingList);
-//       everyonesWatchingList = movies.results;
-//     } catch (error) {
-//       print('Error fetching trending movies: $error');
-//     }
-//     return everyonesWatchingList;
-//   }
 }
