@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:netflix_clone/controller/download_controller.dart';
+import 'package:netflix_clone/controller/home_controller.dart';
 import 'package:netflix_clone/helpers/colors.dart';
 import 'package:netflix_clone/view/widget/bottombar.dart';
 import 'package:provider/provider.dart';
@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => DownloadController(),
-        )
+          create: (context) => HomeScreenController(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

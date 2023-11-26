@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class MainCard extends StatelessWidget {
   const MainCard({
     required this.title,
+    required this.imageList,
     super.key,
   });
 
   final String title;
+  final List<String> imageList;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class MainCard extends StatelessWidget {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: List.generate(
-                10,
+                imageList.length,
                 (index) => Padding(
                   padding: const EdgeInsets.all(5),
                   child: Container(
@@ -36,9 +38,8 @@ class MainCard extends StatelessWidget {
                     height: size * 0.62,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        image: const DecorationImage(
-                            image: NetworkImage(
-                                "https://mir-s3-cdn-cf.behance.net/project_modules/hd/8d8f28105415493.619ded067937d.jpg"))),
+                        image: DecorationImage(
+                            image: NetworkImage(imageList[index]))),
                   ),
                 ),
               ),

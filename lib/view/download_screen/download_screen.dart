@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_clone/controller/download_controller.dart';
+import 'package:netflix_clone/controller/home_controller.dart';
 import 'package:provider/provider.dart';
 import 'widget/download_image_widget.dart';
 
@@ -9,7 +9,7 @@ class DownloadScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final downloadScreenProvider =
-        Provider.of<DownloadController>(context, listen: true);
+        Provider.of<HomeScreenController>(context, listen: true);
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -27,7 +27,7 @@ class DownloadScreen extends StatelessWidget {
               ))
         ]),
       ),
-      body: downloadScreenProvider.imageList.length < 3
+      body: downloadScreenProvider.trendingImages.length < 3
           ? const Center(
               child: CircularProgressIndicator(),
             )
@@ -69,7 +69,7 @@ class DownloadScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 18, color: Colors.grey),
                   textAlign: TextAlign.center,
                 ),
-                Consumer<DownloadController>(
+                Consumer<HomeScreenController>(
                   builder: (context, downloadScreenProvider, child) {
                     return Container(
                       color: Colors.black,
@@ -85,16 +85,19 @@ class DownloadScreen extends StatelessWidget {
                           //download image widget called here
                           DownloadImageWidget(
                               angle: 10,
-                              imageList: downloadScreenProvider.imageList[0],
+                              imageList:
+                                  downloadScreenProvider.trendingImages[0],
                               margin:
                                   const EdgeInsets.only(left: 130, bottom: 20)),
                           DownloadImageWidget(
                               angle: -10,
-                              imageList: downloadScreenProvider.imageList[1],
+                              imageList:
+                                  downloadScreenProvider.trendingImages[1],
                               margin: const EdgeInsets.only(
                                   right: 130, bottom: 20)),
                           DownloadImageWidget(
-                              imageList: downloadScreenProvider.imageList[2],
+                              imageList:
+                                  downloadScreenProvider.trendingImages[2],
                               margin: const EdgeInsets.only(top: 40))
                         ],
                       ),

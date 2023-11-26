@@ -1,13 +1,18 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/controller/home_controller.dart';
 import 'package:netflix_clone/view/home_screen/widget/card_widget.dart';
 import 'package:netflix_clone/view/home_screen/widget/number_card_widget.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    //provider class
+    final homeScreenProvider = Provider.of<HomeScreenController>(context);
+
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: ListView(
@@ -148,11 +153,22 @@ class HomeScreen extends StatelessWidget {
             height: 10,
           ),
           // Cards
-          const MainCard(title: 'Trending Now'),
-          const MainCard(title: 'Released in the past year'),
-          const NumberCardWidget(),
-          const MainCard(title: 'Tense Drama'),
-          const MainCard(title: 'South Indian Cinema'),
+          MainCard(
+              title: 'Trending Now',
+              imageList: homeScreenProvider.trendingImages),
+          MainCard(
+            title: 'Upcoming Movies',
+            imageList: homeScreenProvider.upcomingImages,
+          ),
+          NumberCardWidget(imagesList: homeScreenProvider.topTenImages),
+          MainCard(
+            title: 'Tv Popular',
+            imageList: homeScreenProvider.tvPopularimages,
+          ),
+          MainCard(
+            title: 'Popular Movies',
+            imageList: homeScreenProvider.popularMoviesImages,
+          ),
         ],
       ),
     );

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:bordered_text/bordered_text.dart';
 
 class NumberCardWidget extends StatelessWidget {
-  const NumberCardWidget({super.key});
+  const NumberCardWidget({super.key, required this.imagesList});
+  final List<String> imagesList;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class NumberCardWidget extends StatelessWidget {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: List.generate(
-                10,
+                imagesList.length,
                 (index) => Padding(
                   padding: const EdgeInsets.all(5),
                   child: Stack(children: [
@@ -43,10 +44,9 @@ class NumberCardWidget extends StatelessWidget {
                           height: size * 0.62,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
-                              image: const DecorationImage(
+                              image: DecorationImage(
                                   fit: BoxFit.cover,
-                                  image: NetworkImage(
-                                      "https://mir-s3-cdn-cf.behance.net/project_modules/hd/8d8f28105415493.619ded067937d.jpg"))),
+                                  image: NetworkImage(imagesList[index]))),
                         ),
                       ],
                     ),
