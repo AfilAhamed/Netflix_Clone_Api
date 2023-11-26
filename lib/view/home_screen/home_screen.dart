@@ -161,6 +161,9 @@ class HomeScreen extends StatelessWidget {
             imageList: homeScreenProvider.upcomingImages,
           ),
           NumberCardWidget(imagesList: homeScreenProvider.topTenImages),
+          const SizedBox(
+            height: 4,
+          ),
           MainCard(
             title: 'Tv Popular',
             imageList: homeScreenProvider.tvPopularimages,
