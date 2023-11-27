@@ -32,7 +32,7 @@ class SearchScreen extends StatelessWidget {
               Expanded(
                   child: searchProvider.name.isEmpty
                       ? const SearchIdleWidget()
-                      : SearchResultWidget()),
+                      : const SearchResultWidget()),
             ],
           ),
         ),
