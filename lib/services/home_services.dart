@@ -22,6 +22,7 @@ class PosterImageServices {
           if (movieInfo.posterPath != null) {
             imageList.add(
                 'https://image.tmdb.org/t/p/w500${movieInfo.posterPath}?api_key=$apiKey');
+            //  '$baseUrl/movie/{movie_id}/watch/providers?api_key=$apiKey'
           }
         }
         return imageList;

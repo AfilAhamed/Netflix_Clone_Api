@@ -5,7 +5,6 @@ import 'package:netflix_clone/controller/hot_new_controller.dart';
 import 'package:netflix_clone/helpers/colors.dart';
 import 'package:netflix_clone/view/widget/bottombar.dart';
 import 'package:provider/provider.dart';
-
 import 'controller/search_controller.dart';
 
 void main() {

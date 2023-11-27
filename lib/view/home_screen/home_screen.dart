@@ -20,22 +20,29 @@ class HomeScreen extends StatelessWidget {
           Stack(children: [
             CarouselSlider(
               options: CarouselOptions(
+                  // padEnds: true,
                   viewportFraction: 1.0,
                   enlargeCenterPage: false,
                   autoPlayInterval: const Duration(seconds: 5),
                   height: size.height * 0.6,
                   autoPlay: true),
-              items: [
-                Container(
-                  width: double.infinity,
-                  height: size.height * 0.6,
-                  decoration: const BoxDecoration(
+              items: List.generate(
+                homeScreenProvider.upcomingImages.length,
+                (index) => Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Container(
+                    width: double.infinity,
+                    height: size.height * 0.6,
+                    decoration: BoxDecoration(
                       image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(
-                              'https://www.tallengestore.com/cdn/shop/products/Joker_-_Put_On_A_Happy_Face_-_Joaquin_Phoenix_-_Hollywood_English_Movie_Poster_3_de5e4cfc-cfd4-4732-aad1-271d6bdb1587.jpg?v=1579504979'))),
+                        fit: BoxFit.cover,
+                        image: NetworkImage(
+                            homeScreenProvider.upcomingImages[index]),
+                      ),
+                    ),
+                  ),
                 ),
-              ],
+              ),
             ),
             //top
             Container(
