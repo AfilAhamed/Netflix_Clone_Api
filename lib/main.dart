@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:netflix_clone/controller/bottombar_controller.dart';
 import 'package:netflix_clone/controller/home_controller.dart';
 import 'package:netflix_clone/controller/hot_new_controller.dart';
 import 'package:netflix_clone/helpers/colors.dart';
@@ -27,6 +28,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => SearchsController(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => BottomBarController(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -38,7 +42,7 @@ class MyApp extends StatelessWidget {
             appBarTheme:
                 AppBarTheme(backgroundColor: AppColors().backgroundColor),
             scaffoldBackgroundColor: AppColors().backgroundColor),
-        home: const BottomBarWidget(),
+        home: BottomBarWidget(),
       ),
     );
   }
