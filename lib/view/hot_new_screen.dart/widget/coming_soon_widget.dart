@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/controller/hot_new_controller.dart';
+import 'package:netflix_clone/controller/movie_date_controller.dart';
 import 'package:netflix_clone/model/movie_model.dart';
 import 'package:provider/provider.dart';
 import '../../../core/constants/api_key.dart';
@@ -11,6 +12,8 @@ class ComingSoonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     //provider class
     final provider = Provider.of<HotAndNewController>(context);
+    final dateProvider = Provider.of<MovieDateController>(context);
+
     final Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.only(top: 22),
@@ -22,25 +25,13 @@ class ComingSoonWidget extends StatelessWidget {
 
           return Row(
             children: [
-              const SizedBox(
+              SizedBox(
                 width: 50,
                 height: 420,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Feb',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                    ),
-                    Text(
-                      '11',
-                      style: TextStyle(
-                          letterSpacing: 4,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 28),
-                    )
-                  ],
+                child: Text(
+                  dateProvider.fetchDate(data.releaseDate.toString()),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 22),
                 ),
               ),
               SizedBox(
@@ -111,7 +102,8 @@ class ComingSoonWidget extends StatelessWidget {
                     const SizedBox(
                       height: 2,
                     ),
-                    const Text('Coming On Friday'),
+                    Text(
+                        'Coming on ${dateProvider.fetchDay(data.releaseDate.toString())}'),
                     const SizedBox(
                       height: 10,
                     ),

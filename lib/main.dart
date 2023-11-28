@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:netflix_clone/controller/bottombar_controller.dart';
 import 'package:netflix_clone/controller/home_controller.dart';
 import 'package:netflix_clone/controller/hot_new_controller.dart';
+import 'package:netflix_clone/controller/movie_date_controller.dart';
 import 'package:netflix_clone/helpers/colors.dart';
 import 'package:netflix_clone/view/widget/bottombar.dart';
 import 'package:provider/provider.dart';
@@ -30,6 +31,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => BottomBarController(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => MovieDateController(),
         ),
       ],
       child: MaterialApp(
