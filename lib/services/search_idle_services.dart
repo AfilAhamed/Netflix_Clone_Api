@@ -2,13 +2,13 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:netflix_clone/model/tmdb_response_model.dart';
-import 'package:netflix_clone/services/constants/api_endpoints.dart';
+import 'package:netflix_clone/core/constants/api_endpoints.dart';
 import '../model/movie_model.dart';
 
 class SearchidleServices {
   List<MovieInfoModel> searchMovies = [];
 
-  Future fetchSearchMovies() async {
+  Future<List<MovieInfoModel>?> fetchSearchMovies() async {
     try {
       final Dio dio = Dio();
       final response = await dio.get(ApiEndpoints.top10);
@@ -25,6 +25,7 @@ class SearchidleServices {
       }
     } catch (error) {
       log('Error Encountered: $error');
+      return null;
     }
   }
 }

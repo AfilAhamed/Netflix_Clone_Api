@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../services/constants/api_endpoints.dart';
+import '../core/constants/api_endpoints.dart';
 import '../services/home_services.dart';
 
 class HomeScreenController extends ChangeNotifier {
@@ -15,8 +15,8 @@ class HomeScreenController extends ChangeNotifier {
 
   List<String> trendingImages = [];
   Future<void> getTrendingImages() async {
-    trendingImages = await PosterImageServices()
-        .getMoviePosterImage(ApiEndpoints.trendingMovies);
+    trendingImages = (await PosterImageServices()
+        .getMoviePosterImage(ApiEndpoints.trendingMovies))!;
     notifyListeners();
   }
 
@@ -24,8 +24,8 @@ class HomeScreenController extends ChangeNotifier {
 
   List<String> upcomingImages = [];
   Future<void> getUpcomingImages() async {
-    upcomingImages =
-        await PosterImageServices().getMoviePosterImage(ApiEndpoints.upcoming);
+    upcomingImages = (await PosterImageServices()
+        .getMoviePosterImage(ApiEndpoints.upcoming))!;
     notifyListeners();
   }
 
@@ -34,7 +34,7 @@ class HomeScreenController extends ChangeNotifier {
   List<String> topTenImages = [];
   Future<void> getTopTenImages() async {
     topTenImages =
-        await PosterImageServices().getMoviePosterImage(ApiEndpoints.top10);
+        (await PosterImageServices().getMoviePosterImage(ApiEndpoints.top10))!;
     notifyListeners();
   }
 
@@ -42,8 +42,8 @@ class HomeScreenController extends ChangeNotifier {
 
   List<String> tvPopularimages = [];
   Future<void> getTvPopularImages() async {
-    tvPopularimages =
-        await PosterImageServices().getMoviePosterImage(ApiEndpoints.tvPopular);
+    tvPopularimages = (await PosterImageServices()
+        .getMoviePosterImage(ApiEndpoints.tvPopular))!;
     notifyListeners();
   }
 
@@ -51,8 +51,8 @@ class HomeScreenController extends ChangeNotifier {
 
   List<String> popularMoviesImages = [];
   Future<void> getPopularMoviesImages() async {
-    popularMoviesImages = await PosterImageServices()
-        .getMoviePosterImage(ApiEndpoints.moviepopular);
+    popularMoviesImages = (await PosterImageServices()
+        .getMoviePosterImage(ApiEndpoints.moviepopular))!;
     notifyListeners();
   }
 }

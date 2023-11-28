@@ -1,6 +1,6 @@
 import 'dart:developer';
 import 'package:dio/dio.dart';
-import 'package:netflix_clone/services/constants/api_endpoints.dart';
+import 'package:netflix_clone/core/constants/api_endpoints.dart';
 import '../model/movie_model.dart';
 import '../model/tmdb_response_model.dart';
 
@@ -8,7 +8,7 @@ class HotandNewServices {
   List<MovieInfoModel> comingSoonList = [];
   List<MovieInfoModel> everyOnesWatchingList = [];
 
-  Future fetchComingSoon() async {
+  Future<List<MovieInfoModel>?> fetchComingSoon() async {
     try {
       final Dio dio = Dio();
       final response = await dio.get(ApiEndpoints.upcoming);
@@ -19,15 +19,15 @@ class HotandNewServices {
         comingSoonList = tmdbApiResponse.results;
         return comingSoonList;
       } else {
-        return [];
+        return null;
       }
     } catch (error) {
       log('Error Encountered: $error');
-      throw error.toString();
+      return null;
     }
   }
 
-  Future fetchEveryOnesWatching() async {
+  Future<List<MovieInfoModel>?> fetchEveryOnesWatching() async {
     try {
       final Dio dio = Dio();
       final response = await dio.get(ApiEndpoints.moviepopular);
@@ -38,11 +38,11 @@ class HotandNewServices {
         everyOnesWatchingList = tmdbApiResponse.results;
         return everyOnesWatchingList;
       } else {
-        return [];
+        return null;
       }
     } catch (error) {
       log('Error Encountered: $error');
-      throw error.toString();
+      return null;
     }
   }
 }

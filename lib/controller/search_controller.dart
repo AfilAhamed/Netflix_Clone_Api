@@ -12,7 +12,8 @@ class SearchsController extends ChangeNotifier {
 
   List<MovieInfoModel> searchResults = [];
   Future<void> getSearchResults(String searchName) async {
-    searchResults = await SearchResultServices().fetchSearchResult(searchName);
+    searchResults =
+        (await SearchResultServices().fetchSearchResult(searchName))!;
     notifyListeners();
   }
 }

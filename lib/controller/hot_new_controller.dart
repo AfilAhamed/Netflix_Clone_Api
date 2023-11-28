@@ -12,13 +12,13 @@ class HotAndNewController extends ChangeNotifier {
 
   //fetch ComingSoon data
   Future<void> getComingSoonData() async {
-    upcoming = await HotandNewServices().fetchComingSoon();
+    upcoming = (await HotandNewServices().fetchComingSoon())!;
     notifyListeners();
   }
 
   //fetch EveryonesWatching data
   Future<void> getEveryonesWatchingData() async {
-    everyonesWatching = await HotandNewServices().fetchEveryOnesWatching();
+    everyonesWatching = (await HotandNewServices().fetchEveryOnesWatching())!;
     notifyListeners();
   }
 }

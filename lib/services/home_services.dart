@@ -1,13 +1,13 @@
 import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:netflix_clone/model/tmdb_response_model.dart';
-import 'package:netflix_clone/services/constants/api_key.dart';
+import 'package:netflix_clone/core/constants/api_key.dart';
 import '../model/movie_model.dart';
 
 class PosterImageServices {
   // function for GET poster images based on url
 
-  Future<List<String>> getMoviePosterImage(String url) async {
+  Future<List<String>?> getMoviePosterImage(String url) async {
     try {
       final Dio dio = Dio();
       List<String> imageList = [];
@@ -22,16 +22,15 @@ class PosterImageServices {
           if (movieInfo.posterPath != null) {
             imageList.add(
                 'https://image.tmdb.org/t/p/w500${movieInfo.posterPath}?api_key=$apiKey');
-            //  '$baseUrl/movie/{movie_id}/watch/providers?api_key=$apiKey'
           }
         }
         return imageList;
       } else {
-        return [];
+        return null;
       }
     } catch (error) {
       log('error encountered ${error.toString()}');
-      throw "error";
+      return null;
     }
   }
 }

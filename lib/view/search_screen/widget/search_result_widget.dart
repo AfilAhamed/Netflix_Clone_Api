@@ -3,7 +3,7 @@ import 'package:netflix_clone/controller/search_controller.dart';
 import 'package:netflix_clone/model/movie_model.dart';
 import 'package:provider/provider.dart';
 
-import '../../../services/constants/api_key.dart';
+import '../../../core/constants/api_key.dart';
 
 class SearchResultWidget extends StatelessWidget {
   const SearchResultWidget({super.key});
