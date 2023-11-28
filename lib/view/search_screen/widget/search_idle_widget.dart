@@ -21,26 +21,32 @@ class SearchIdleWidget extends StatelessWidget {
         Expanded(
           child: Consumer<HomeScreenController>(
             builder: (context, provider, child) {
-              return GridView.builder(
-                itemCount: provider.topTenImages.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                    childAspectRatio: 0.8),
-                itemBuilder: (context, index) {
-                  return Container(
-                    width: size * 0.3,
-                    height: size * 0.62,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(provider.topTenImages[index]),
-                        )),
-                  );
-                },
-              );
+              return provider.topTenImages.isEmpty
+                  ? const Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : GridView.builder(
+                      itemCount: provider.topTenImages.length,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              crossAxisSpacing: 10,
+                              mainAxisSpacing: 10,
+                              childAspectRatio: 0.8),
+                      itemBuilder: (context, index) {
+                        return Container(
+                          width: size * 0.3,
+                          height: size * 0.62,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image:
+                                    NetworkImage(provider.topTenImages[index]),
+                              )),
+                        );
+                      },
+                    );
             },
           ),
         ),

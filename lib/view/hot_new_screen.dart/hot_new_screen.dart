@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/view/hot_new_screen.dart/widget/coming_soon_widget.dart';
 import 'package:netflix_clone/view/hot_new_screen.dart/widget/everyone_watching_widget.dart';
+import 'package:provider/provider.dart';
+import '../../controller/hot_new_controller.dart';
 
 class FeedsScreen extends StatelessWidget {
   const FeedsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<HotAndNewController>(context);
+
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -41,8 +45,18 @@ class FeedsScreen extends StatelessWidget {
                 )
               ]),
         ),
-        body: const TabBarView(
-            children: [ComingSoonWidget(), EveryoneWatchingWidget()]),
+        body: TabBarView(children: [
+          provider.upcoming.isEmpty
+              ? const Center(
+                  child: CircularProgressIndicator(),
+                )
+              : const ComingSoonWidget(), //
+          provider.everyonesWatching.isEmpty
+              ? const Center(
+                  child: CircularProgressIndicator(),
+                )
+              : const EveryoneWatchingWidget()
+        ]),
       ),
     );
   }
