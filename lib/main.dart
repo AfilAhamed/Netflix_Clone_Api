@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Netflix_Clone',
+        title: 'Netflix Clone',
         theme: ThemeData(
             textTheme:
                 const TextTheme(bodyMedium: TextStyle(color: Colors.white)),
